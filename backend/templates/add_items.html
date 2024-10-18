@@ -1,0 +1,38 @@
+{% extends 'dash.html' %}
+
+{% block content %}
+<form method="post" class="m-5 container w-50" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-1">
+        <h2><b>Add Product</b></h2>
+        <p>Explore the latest in electronic gadgets, from smartphones to smart home devices, designed to elevate your everyday life.</p>
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input required name="product_name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-1">
+        <label for="exampleInputEmail1" class="form-label">Price</label>
+        <input required name="product_price" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Description</label>
+      <textarea rows="4" type="text" name="product_desc" required name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> </textarea>
+    </div>
+    product_price
+    <label>Select the Catagory</label>
+    <div class="">
+        <select required name="catagory" class="form-select" name="catagory" id="floatingSelect">
+          <option selected value="1">Mobiles</option>
+          <option value="2">Laptops</option>
+          <option value="3">Accessories</option>
+          <option value="4">Wearables</option>
+        </select>
+      </div>
+      <div class="mt-3">
+        <label for="formFile" class="form-label" >Select Photo</label>
+        <input class="form-control" type="file" name="product_image" id="formFile">
+      </div>
+      <br>
+    
+    <button type="submit" class="btn btn-dark mt-4">Add Product</button>
+  </form>
+{% endblock %}

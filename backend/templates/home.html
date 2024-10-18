@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .hover-effect {
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .hover-effect:hover {
+        background-color: #ff5722; /* Change this color to your desired hover color */
+        color: white; /* Change text color on hover */
+    }
+</style>
+
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/headphone.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Headphone Collection</h6>
+                            <h2>Sony M4879</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                            commitment to exceptional quality.</p>
+                            <a href="#" class="primary-btn hover-effect">Shop now <span class="arrow_right"></span></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/airpods.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Apple Airpods</h6>
+                            <h2>Flat 30% off</h2>
+                            <p>A specialist label creating luxury gadget. Ethically crafted with an unwavering
+                            commitment to exceptional quality.</p>
+                            <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>
+
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">All Products</li>
+                    <li data-filter=".mobiles">Mobiles</li>
+                    <li data-filter=".laptops">Laptops</li>
+                    <li data-filter=".accessories">Accessories</li>
+                    <li data-filter=".wearables">Wearables</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row product__filter">
+            {% for product in all %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/compare.png'}" alt=""> <span>Compare</span></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{product.name}}</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>{{product.price}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <p>No products available.</p>
+            {% endfor %}
+        </div>
+        <div class="row product__filter">
+            {% for product in mobiles %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/compare.png'}" alt=""> <span>Compare</span></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{product.name}}</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>{{product.price}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <p>No products available.</p>
+            {% endfor %}
+        </div>
+        <div class="row product__filter">
+            {% for product in laptops %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/compare.png'}" alt=""> <span>Compare</span></a></li>
+                            <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{product.name}}</h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>{{product.price}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <p>No products available.</p>
+            {% endfor %}
+        </div>
+        
+    </div>
+</section>
+
+<script>
+
+    const buttons = document.querySelectorAll('.hover-effect');
+
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.backgroundColor = '#ff5722'; 
+            button.style.color = 'white'; 
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.backgroundColor = '';
+            button.style.color = ''; 
+        });
+    });
+</script>
+
+
+{% endblock %}
